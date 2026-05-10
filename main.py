@@ -11,7 +11,7 @@ class cuerpo:
 		print(self.v)
 		print(self.a)
 	
-	def RK4(self, c : cuerpo):
+	def RK4(self, c ):
 		print(np.sum(self.r + c.r))
 def save_positions():
 	with open("tierra.txt", "w") as f:
