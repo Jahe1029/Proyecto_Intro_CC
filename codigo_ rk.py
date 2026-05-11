@@ -30,7 +30,32 @@ def Rk_4(h, y_i, x_i, f):
     y_ii = y_i + (1/6 * (k1 + 2*k2 + 2*k3 + k4))
     return y_ii 
 
-def fc (y, x):
+
+def a_c(mu_j, mu_k, r_i, r_j, r_k):
+    a_c =-((mu_j*(r_i - r_j))/math.pow((np.linalg.norm(r_i - r_j)), 3))-((mu_k*(r_i - r_k))/math.pow((np.linalg.norm(r_i - r_k)), 3))
+    return a_c
+
+
+def f(s_m, a): #definimos la derivada dado un estado
+    f(s_m,a)[0]=s_m[1]
+    f(s_m,a)[1]=a(s_m[0])
+    return f(s_m, a)
+
+
+
+
+
+def RK_4(h, s, f):
+    k1=(h*f(s))
+    k2=(h*f(s+(0.5*k1)))
+    f[0]=
+    k3=(h*f(s+(0.5*k2)))
+    k4=(h*f(s+(h*k3)))
+    s = s + (1/6 * (k1 + 2*k2 + 2*k3 + k4))
+    return s
+
+
+def fc (y, x):         #Aqui se supone que debemos poner la ecuación de la aceleracion osea la de gravedad.
     resultado =-2*x
     return resultado
 
@@ -50,3 +75,11 @@ resultado = operacion(cuadrado, 5)  # Pasamos 'cuadrado' como argumento
 print(resultado)  # Salida: 25
 
 """
+
+# Definir los vectores
+v1 = np.array([1, 2, 3])
+v2 = np.array([4, 5, 6])
+
+# Sumar vectores
+resultado = v1 + v2
+print(resultado)  # Resultado: [5 7 9]
